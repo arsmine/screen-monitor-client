@@ -1,0 +1,8 @@
+{
+    "interval": "30s",
+    "serverIPs": [
+        "myendpoint.com"
+    ],
+    "triger": "sendmessage.sh",
+    "trigerType": "/bin/bash"
+}
