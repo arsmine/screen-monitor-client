@@ -72,17 +72,25 @@ func GetOsStatResponse(url string) (*OsStat, error) {
 
 /* GetScreenStatResponse collects given url's api response,
  * parses to the ScreenStat struct and returns it. */
-func GetScreenStatResponse(url string) (*ScreenStat, error) {
+func GetScreenStatResponse(url string) (ScreenStat, error) {
+	var stat ScreenStat
 	res, err := http.Get(url)
 	if err != nil {
-		return nil, err
+		return stat, err
 	}
 	defer res.Body.Close()
 
-	var stat ScreenStat
 	err = json.NewDecoder(res.Body).Decode(&stat)
 	if err != nil {
-		return nil, err
+		return stat, err
 	}
-	return &stat, nil
+	return stat, nil
 }
+
+/*
+func InitTriggerStat() *TriggerStat {
+
+}
+
+func WriteJsonFile()
+*/
