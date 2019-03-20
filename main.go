@@ -33,7 +33,7 @@ type ScreensTriggerStat struct {
 type config struct {
 	Interval   string   `json:"interval"`
 	Urls       []string `json:"urls"`
-	TrigerFunc string   `json:"trigerFunc"`
+	TrigerFunc string   `json:"triger"`
 	TrigerType string   `json:"trigerType"`
 }
 

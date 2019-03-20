@@ -1,6 +1,6 @@
 {
     "interval": "30s",
-    "serverIPs": [
+    "urls": [
         "http://myendpoint.com/api/screens"
     ],
     "triger": "sendmessage.sh",
