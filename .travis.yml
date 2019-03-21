@@ -1,4 +1,7 @@
 language: go
-script: go get -u github.com/arsmine/screen-monitor-client && go build
+sudo: false
+go:
+  "1.11"
 notifications:
-  email: true
+  email:
+    on_success: never

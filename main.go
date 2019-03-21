@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"./parser"
+	"github.com/arsmine/screen-monitor-client/parser"
 )
 
 var options struct {
