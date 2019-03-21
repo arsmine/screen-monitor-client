@@ -86,11 +86,3 @@ func GetScreenStatResponse(url string) (ScreenStat, error) {
 	}
 	return stat, nil
 }
-
-/*
-func InitTriggerStat() *TriggerStat {
-
-}
-
-func WriteJsonFile()
-*/

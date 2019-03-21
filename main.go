@@ -107,13 +107,12 @@ func checkScreens(cfg *config) {
 
 	// check screens are up or not
 	for i, _ := range screenStats {
-		log.Println("screen", screenStats)
-		log.Println("triggerScreen", TriggerStructs)
 		screen := screenStats[i].Screens
 		triggerScreen := TriggerStructs[i].Screens
 
+		log.Printf("Screen Stats of %s:", screenStats[i].Hostname)
 		for j, _ := range screen {
-			log.Printf("Screen stats:\n\t\t%s is %t\n", screen[j].Name, screen[j].Up)
+			log.Printf("\t\t%s is %t\n", screen[j].Name, screen[j].Up)
 
 			// the screen went offline and message hasn't been send yet
 			if !screen[j].Up && triggerScreen[j].Triggered == true {
@@ -123,7 +122,7 @@ func checkScreens(cfg *config) {
 
 			// the screen went online(was offline) and we can send message
 			if screen[j].Up && triggerScreen[j].Triggered == false {
-				log.Printf("%s is online. Setting trigger to true.", screen[j].Name)
+				log.Printf("%s is back online. Setting trigger to true.", screen[j].Name)
 				triggerScreen[j].Triggered = true
 			}
 		}
@@ -150,7 +149,7 @@ func updateTriggerStats(cfg *config) {
 	for _, value := range cfg.Urls {
 		screenRes, err := parser.GetScreenStatResponse(value)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("Error when getting screen stats: %s\n", err)
 		}
 
 		var screenTriggerStats []ScreensTriggerStat
